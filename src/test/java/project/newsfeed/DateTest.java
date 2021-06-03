@@ -13,6 +13,7 @@ public class DateTest {
         String test = "2021-04-15T20:38:11+0000";
 
         test = test.substring(0, test.length() - 5);
+        System.out.println(test);
         LocalDateTime localDate = LocalDateTime.parse(test);
         long timeInSeconds = localDate.toEpochSecond(ZoneOffset.UTC);
 

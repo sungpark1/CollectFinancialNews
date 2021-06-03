@@ -1,6 +1,12 @@
 import React, {Component} from 'react';
+import './styles.css';
+import InfiniteScroll from "react-infinite-scroll-component";
 
-class sorted_list extends Component {
+function dateConverter() {
+
+}
+
+class Sorted_list extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -25,19 +31,43 @@ class sorted_list extends Component {
     // }
 
     render() {
-        // do call methods here
         // let titles = this.organizeByTitle(this.state.news)
         const news = this.state.news
         const titles = news.map(article => (
-            <li>{article.epoch}</li>
+            // <InfiniteScroll next={()=>setPage(page + 1)} hasMore={true} dataLength={news.length}>
+                <div className="container">
+                    <li className="news-list">
+                        <a href={article.url}>
+                            <div className="sourceContainer">
+                                <i className="fab fa-hacker-news-square"/>
+                                <div className="source">
+                                    {/*{setUTCSecond(article.epoch)}*/}
+                                    {article.source}
+                                </div>
+                                <div className="date">
+                                    {article.epoch}
+                                </div>
+                            </div>
+                            <div className="titleContainer">
+                                <div className="title">
+                                    {article.title}
+                                </div>
+                                <div className="picture">
+                                    <img src={"https://tinyurl.com/yebvn562"}>
+                                    </img>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </div>
+            // </InfiniteScroll>
             // <li><Article props={article}></li>
         ))
 
         return (
             // <containerName props = {this.state.news}>
-            <div className='div1'>
-                {/*{console.log(news)}*/}
-                {/*<div>this.state.news</div>*/}
+            <div className="newsTable-container">
+                <div className="searchBar">Search bar</div>
                 {titles}
             </div>
         );
@@ -45,7 +75,7 @@ class sorted_list extends Component {
 
 }
 
-export default sorted_list;
+export default Sorted_list;
 
 // constructor
 // this.state = {

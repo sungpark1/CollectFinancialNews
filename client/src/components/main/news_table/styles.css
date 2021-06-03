@@ -1,0 +1,83 @@
+.searchBar {
+    background-color: deeppink;
+    margin: 5px auto 5px auto;
+    padding: 10px;
+    width: 50%;
+    text-align: center;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(48, 54, 58);
+}
+
+.newsTable-container {
+    /*background: yellow;*/
+}
+
+.container {
+    margin: auto;
+    width: 43%;
+    /*background: #61dafb;*/
+}
+
+.news-list {
+    /*background: yellowgreen;*/
+    margin: 0 10px;
+    padding: 5px;
+    cursor: pointer;
+    border-bottom: 2px solid #f2f2f2;
+}
+
+.news-list:hover {
+    background-color: #f2f2f2;
+}
+
+.sourceContainer {
+    /*background: #3acbf7;*/
+    display: flex;
+}
+
+.source {
+    /*background: brown;*/
+    font-weight: 700;
+    font-family: Capsule Sans Text,-apple-system,BlinkMacSystemFont,sans-serif;
+    font-size: 13px;
+    padding: 0 0 0 5px;
+    margin: 3px 0;
+}
+
+.date {
+    /*background: darkmagenta;*/
+    margin: 3px 0 3px 10px;
+}
+
+
+.titleContainer {
+    /*background: pink;*/
+    display: flex;
+    size: 20px;
+}
+
+.title {
+    /*background: darkslategray;*/
+    padding: 2px;
+    margin-left: 10px;
+    justify-content: flex-start;
+    width: 90%;
+    font-size: 15px;
+}
+
+.picture {
+    padding-right: 30px;
+    max-width: 170px;
+    max-height: 100px;
+    overflow: hidden;
+    justify-content: center;
+}
+
+

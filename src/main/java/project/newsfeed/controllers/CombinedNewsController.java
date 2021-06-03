@@ -8,6 +8,7 @@ import project.newsfeed.services.NewsFeedService;
 import project.newsfeed.utils.JsonConverter;
 
 import java.io.IOException;
+import java.text.ParseException;
 
 @RestController
 public class CombinedNewsController {
@@ -16,7 +17,7 @@ public class CombinedNewsController {
     NewsFeedService newsFeedService;
 
     @GetMapping("/combinedNews")
-    public JsonNode getCombinedNews() throws IOException{
+    public JsonNode getCombinedNews() throws IOException {
         return newsFeedService.combinedNews();
     }
 

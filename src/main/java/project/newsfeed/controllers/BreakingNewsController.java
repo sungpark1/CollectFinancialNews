@@ -20,4 +20,5 @@ public class BreakingNewsController {
     public JsonNode getFullResponse() throws IOException{
         return breakingNewsConnector.getFullResponse();
     }
+
 }

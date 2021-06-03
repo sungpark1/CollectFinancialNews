@@ -3,25 +3,18 @@ package project.newsfeed.services;
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import project.newsfeed.connectors.CNBCConnector;
 import project.newsfeed.connectors.YahooConnector;
-import project.newsfeed.models.CombinedNews;
 import project.newsfeed.models.News;
 import project.newsfeed.utils.JsonConverter;
-
-
+import java.text.SimpleDateFormat;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.time.LocalDateTime;
-import java.time.ZoneOffset;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.PriorityQueue;
+import java.text.ParseException;
+import java.util.*;
 
 @Service
 public class NewsFeedService {
@@ -33,8 +26,9 @@ public class NewsFeedService {
     CNBCConnector cnbcConnector;
 
     public JsonNode combinedNews() throws IOException {
-        PriorityQueue<News> heap = new PriorityQueue<>((a, b) -> b.getEpoch() - a.getEpoch());
+        PriorityQueue<News> heap = new PriorityQueue<>((a, b) -> b.getDate().compareTo(a.getDate()));
 
+//        System.out.println(JsonConverter.getInstance().toJsonNode(organizeCNBCNews()));
         heap.addAll(organizeCNBCNews());
         heap.addAll(organizeYahooNews());
 
@@ -53,7 +47,6 @@ public class NewsFeedService {
 //        JSONArray jsonArray = new JSONArray();
         return JsonConverter.getInstance().toJsonNode(combinedNewsList);
     }
-
     public List<News> organizeCNBCNews() throws IOException {
         String cnbc = new String(Files.readAllBytes(Paths.get("src/main/resources/static/cnbc.json")));
         ObjectMapper mapper = new ObjectMapper();
@@ -68,19 +61,24 @@ public class NewsFeedService {
                     News n = new News();
                     if (news.has("dateLastPublished")) {
                         String gmt = news.get("dateLastPublished").asText();
-                        gmt = gmt.substring(0, gmt.length() - 5);
-                        LocalDateTime localDate = LocalDateTime.parse(gmt);
-                        Integer gmtToEpoch = (int) localDate.toEpochSecond(ZoneOffset.UTC);
-                        n.setEpoch(gmtToEpoch);
-                        if (news.has("__typename")) {
-                            n.set__typename(news.get("__typename").asText());
+                        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.ENGLISH);
+                        formatter.setTimeZone(TimeZone.getTimeZone("America/New_York"));
+                        try {
+                            n.setDate(formatter.parse(gmt));
+                        } catch (ParseException e) {
+                            e.printStackTrace();
                         }
+
                         if (news.has("id")) {
                             n.setId(news.get("id").asText());
+                        }
+                        if (news.has("headline")) {
+                            n.setTitle(news.get("headline").asText());
                         }
                         if (news.has("url")) {
                             n.setUrl(news.get("url").asText());
                         }
+                        n.setSource("CNBC");
                         list.add(n);
                     }
                 }
@@ -89,7 +87,7 @@ public class NewsFeedService {
         return list;
     }
 
-    public List<News> organizeYahooNews() throws IOException {
+    public List<News> organizeYahooNews() throws IOException, NullPointerException {
         String yahoo = new String(Files.readAllBytes(Paths.get("src/main/resources/static/yahoo.json")));
         ObjectMapper mapper = new ObjectMapper();
         JsonFactory factory = mapper.getFactory();
@@ -100,9 +98,9 @@ public class NewsFeedService {
         json.get("items").get("result").forEach(news -> {
                     News n = new News();
                     if (news.has("published_at")) {
-                        n.setEpoch(news.get("published_at").asInt());
+                        n.setDate(new Date(news.get("published_at").asLong() * 1000));
                         if (news.has("uuid")) {
-                            n.setUuid(news.get("uuid").asText());
+                            n.setId(news.get("uuid").asText());
                         }
                         if (news.has("title")) {
                             n.setTitle(news.get("title").asText());
@@ -110,6 +108,7 @@ public class NewsFeedService {
                         if (news.has("link")) {
                             n.setUrl(news.get("link").asText());
                         }
+                        n.setSource("Yahoo Finance");
                         list.add(n);
                     }
                 }

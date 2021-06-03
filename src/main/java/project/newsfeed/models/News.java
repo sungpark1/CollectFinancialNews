@@ -2,32 +2,42 @@ package project.newsfeed.models;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import java.util.*;
+
 import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
 
 @JsonInclude(NON_NULL)
 public class News {
     String id;
-    String uuid;
     String title;
     String url;
     String type;
-    String __typename;
-    Integer epoch;
+    String source;
+    Long epoch;
+    Date date;
 
-    public Integer getEpoch() { return epoch; }
-
-    public void setEpoch(Integer epoch) { this.epoch = epoch; }
-
-    public String getUuid() { return uuid; }
-
-    public void setUuid(String uuid) { this.uuid = uuid; }
-
-    public String get__typename() {
-        return __typename;
+    public Long getEpoch() {
+        return epoch;
     }
 
-    public void set__typename(String __typename) {
-        this.__typename = __typename;
+    public void setEpoch(Long epoch) {
+        this.epoch = epoch;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public String getSource() {
+        return source;
+    }
+
+    public void setSource(String source) {
+        this.source = source;
     }
 
     public String getId() {

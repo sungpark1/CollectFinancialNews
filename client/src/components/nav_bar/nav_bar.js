@@ -1,60 +1,37 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React, {Component} from 'react';
+import {MenuItems} from "./menu_items";
 import './styles.css';
+import {Styles} from "./button/button";
 
-export default class Nav_bars extends Component {
-    state = {
-        navbarState: false,
-        navbarClass: "collapse navbar-collapse",
-        menus: [
-            {
-                id: 1,
-                text: "Home",
-                url: "/"
-            }
-        ]
-    };
+class NavBar extends Component {
+    state = {clicked: false}
 
-    // navbar toggler button
-    navbarToggler = () => {
-        this.state.navbarState
-            ? this.setState({
-                navbarState: false,
-                navbarClass: "collapse navbar-collapse"
-            })
-            : this.setState({
-                navbarState: true,
-                navbarClass: "collapse navbar-collapse show"
-            });
-    };
+    handleClick = () => {
+        this.setState({clicked: !this.state.clicked})
+    }
+
     render() {
         return (
-            <nav className="navbar navbar-expand-sm bg-theme text-white">
-                <Link to="/" className="navbar-brand ml-5">
-                    <img src="/" alt="NewsFeed" width="40px" />
-                </Link>
-                <button
-                    className="navbar-toggler"
-                    type="button"
-                    onClick={this.navbarToggler}
-                >
-                    <span className="text-white">Menu</span>
-                </button>
-                <div className={this.state.navbarClass}>
-                    <ul className="navbar-nav ml-auto mr-5">
-                        {this.state.menus.map(menu => {
-                            return (
-                                <li key={menu.id} className="nav-item">
-                                    <Link to={menu.url} className="nav-link text-white">
-                                        {menu.text}
-                                    </Link>
-                                </li>
-                            );
-                        })}
-                    </ul>
+            <nav className={"navbar_items"}>
+                <h1 className={"navbar-logo"}><i className={"far fa-newspaper"}/>NewsFeed</h1>
+                <div className={"menu-icon"} onClick={this.handleClick}>
+                    <i className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
                 </div>
+                <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
+                    {MenuItems.map((item, index) => {
+                        return (
+                            <li key={index}>
+                                <a className={item.cName} href={item.url}>
+                                    {item.title}
+                                </a>
+                            </li>
+                        )
+                    })}
+                </ul>
+                <Styles>Sign Up</Styles>
             </nav>
         );
     }
 }
 
+export default NavBar;
