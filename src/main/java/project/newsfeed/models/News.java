@@ -14,7 +14,7 @@ public class News {
     String type;
     String source;
     Long epoch;
-    Date date;
+    String date;
 
     public Long getEpoch() {
         return epoch;
@@ -24,11 +24,11 @@ public class News {
         this.epoch = epoch;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

@@ -63,8 +63,9 @@ public class NewsFeedService {
                         String gmt = news.get("dateLastPublished").asText();
                         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.ENGLISH);
                         formatter.setTimeZone(TimeZone.getTimeZone("America/New_York"));
+
                         try {
-                            n.setDate(formatter.parse(gmt));
+                            n.setDate(formatter.parse(gmt).toString());
                         } catch (ParseException e) {
                             e.printStackTrace();
                         }
@@ -98,7 +99,7 @@ public class NewsFeedService {
         json.get("items").get("result").forEach(news -> {
                     News n = new News();
                     if (news.has("published_at")) {
-                        n.setDate(new Date(news.get("published_at").asLong() * 1000));
+                        n.setDate(new Date(news.get("published_at").asLong() * 1000).toString());
                         if (news.has("uuid")) {
                             n.setId(news.get("uuid").asText());
                         }
