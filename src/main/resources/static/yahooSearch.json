@@ -1,0 +1,155 @@
+{
+  "explains": [],
+  "count": 15,
+  "quotes": [
+    {
+      "exchange": "NMS",
+      "shortname": "Tesla, Inc.",
+      "quoteType": "EQUITY",
+      "symbol": "TSLA",
+      "index": "quotes",
+      "score": 107341104,
+      "typeDisp": "Equity",
+      "longname": "Tesla, Inc.",
+      "isYahooFinance": true
+    },
+    {
+      "exchange": "MEX",
+      "shortname": "TESLA INC",
+      "quoteType": "EQUITY",
+      "symbol": "TSLA.MX",
+      "index": "quotes",
+      "score": 20595,
+      "typeDisp": "Equity",
+      "longname": "Tesla, Inc.",
+      "isYahooFinance": true
+    },
+    {
+      "exchange": "OPR",
+      "shortname": "TSLA Jun 2021 600.000 put",
+      "quoteType": "OPTION",
+      "symbol": "TSLA210618P00600000",
+      "index": "quotes",
+      "score": 20250,
+      "typeDisp": "Option",
+      "isYahooFinance": true
+    },
+    {
+      "exchange": "OPR",
+      "shortname": "TSLA Jun 2021 1.000 call",
+      "quoteType": "OPTION",
+      "symbol": "TSLA210618C00001000",
+      "index": "quotes",
+      "score": 20133,
+      "typeDisp": "Option",
+      "isYahooFinance": true
+    },
+    {
+      "exchange": "OPR",
+      "shortname": "TSLA Jun 2021 625.000 call",
+      "quoteType": "OPTION",
+      "symbol": "TSLA210618C00625000",
+      "index": "quotes",
+      "score": 20091,
+      "typeDisp": "Option",
+      "isYahooFinance": true
+    },
+    {
+      "exchange": "OPR",
+      "shortname": "TSLA Jun 2021 615.000 call",
+      "quoteType": "OPTION",
+      "symbol": "TSLA210618C00615000",
+      "index": "quotes",
+      "score": 20090,
+      "typeDisp": "Option",
+      "isYahooFinance": true
+    },
+    {
+      "exchange": "OPR",
+      "shortname": "TSLA Jun 2021 670.000 call",
+      "quoteType": "OPTION",
+      "symbol": "TSLA210618C00670000",
+      "index": "quotes",
+      "score": 20074,
+      "typeDisp": "Option",
+      "isYahooFinance": true
+    }
+  ],
+  "news": [
+    {
+      "uuid": "b86c7c04-ecd1-3566-939e-9b860e982cbd",
+      "title": "‘Deeply Disturbing’ Toshiba Report Points to Powerful Figures",
+      "publisher": "Bloomberg",
+      "link": "https://finance.yahoo.com/news/deeply-disturbing-toshiba-report-points-160000930.html",
+      "providerPublishTime": 1623819278,
+      "type": "STORY"
+    },
+    {
+      "uuid": "cee63fae-c4b1-3402-a693-64f7260c044e",
+      "title": "Dow Jones Futures, Stock Market Rally Await Fed Meeting News; Oracle, Roblox Are Key Movers Late",
+      "publisher": "Investor's Business Daily",
+      "link": "https://finance.yahoo.com/m/cee63fae-c4b1-3402-a693-64f7260c044e/dow-jones-futures%2C-stock.html",
+      "providerPublishTime": 1623811805,
+      "type": "STORY"
+    },
+    {
+      "uuid": "c4666f79-d0d6-3df0-9550-bf24ecedf796",
+      "title": "MicroStrategy Announces $1B Stock Offering With Plans To Buy More Bitcoin With Proceeds",
+      "publisher": "Benzinga",
+      "link": "https://finance.yahoo.com/news/microstrategy-announces-1b-stock-offering-230855702.html",
+      "providerPublishTime": 1623798535,
+      "type": "STORY"
+    },
+    {
+      "uuid": "ada1aca2-eb74-32fa-8e06-e37c86f22750",
+      "title": "Buy Tesla Stock Following Model S Plaid Launch? Analyst Weighs In",
+      "publisher": "TipRanks",
+      "link": "https://finance.yahoo.com/news/buy-tesla-stock-following-model-230258821.html",
+      "providerPublishTime": 1623798178,
+      "type": "STORY"
+    },
+    {
+      "uuid": "b89711a5-c5bb-37cb-b82b-f1c5aaafed02",
+      "title": "It’s time to be smart like Soros in the ‘blow-off’ stage of the bull market in stocks",
+      "publisher": "MarketWatch",
+      "link": "https://finance.yahoo.com/m/b89711a5-c5bb-37cb-b82b-f1c5aaafed02/it%E2%80%99s-time-to-be-smart-like.html",
+      "providerPublishTime": 1623788880,
+      "type": "STORY"
+    },
+    {
+      "uuid": "ce2207ae-ec4c-3a19-bfce-70a6d0d42744",
+      "title": "Saddle up for a summer rally in the stock market",
+      "publisher": "MarketWatch",
+      "link": "https://finance.yahoo.com/m/ce2207ae-ec4c-3a19-bfce-70a6d0d42744/saddle-up-for-a-summer-rally.html",
+      "providerPublishTime": 1623786300,
+      "type": "STORY"
+    },
+    {
+      "uuid": "10d967d8-117d-44a0-83e5-414f46f74255",
+      "title": "Mercedes USA CEO: We're moving fast in the direction of EVs",
+      "publisher": "Yahoo Finance",
+      "link": "https://finance.yahoo.com/news/mercedes-benz-usa-ceo-on-luxury-automakers-ev-future-193618625.html",
+      "providerPublishTime": 1623785778,
+      "type": "STORY"
+    },
+    {
+      "uuid": "69e2338c-72ff-3cef-8d3e-20c069404434",
+      "title": "Video: Tesla Model S Plaid Owner Enjoys Yoke Steering, Adapts Quickly",
+      "publisher": "Benzinga",
+      "link": "https://finance.yahoo.com/news/video-tesla-model-plaid-owner-184439238.html",
+      "providerPublishTime": 1623782679,
+      "type": "STORY"
+    }
+  ],
+  "nav": [],
+  "lists": [],
+  "researchReports": [],
+  "totalTime": 39,
+  "timeTakenForQuotes": 418,
+  "timeTakenForNews": 600,
+  "timeTakenForAlgowatchlist": 400,
+  "timeTakenForPredefinedScreener": 400,
+  "timeTakenForCrunchbase": 0,
+  "timeTakenForNav": 400,
+  "timeTakenForResearchReports": 0
+}

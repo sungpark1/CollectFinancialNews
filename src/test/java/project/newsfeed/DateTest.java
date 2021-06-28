@@ -1,10 +1,12 @@
 package project.newsfeed;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.*;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.TimeZone;
 
 public class DateTest {
     public static void main(String[] args) throws ParseException {
@@ -19,5 +21,12 @@ public class DateTest {
 
         System.out.println(timeInSeconds);
         //1618519091
+
+        long epoch = 1618519091L * 1000;
+        Date date = new Date(epoch);
+        DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+        formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
+        String formatted = formatter.format(date);
+        System.out.println(formatted);
     }
 }

@@ -3,7 +3,6 @@ package project.newsfeed.connectors;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -26,11 +25,12 @@ public class YahooConnector {
         con.setRequestProperty("accept", "application/json");
     }
 
+
+
 //    @Cacheable(cacheNames={"yahooResponse"}, cacheManager = "cacheWithTTL")
     public JsonNode getFullResponse() throws IOException {
         InputStream responseStream = con.getInputStream();
         ObjectMapper mapper = new ObjectMapper();
-
         return mapper.readValue(responseStream, JsonNode.class);
     }
 

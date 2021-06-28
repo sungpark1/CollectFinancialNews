@@ -15,6 +15,15 @@ public class News {
     String source;
     Long epoch;
     String date;
+    String query;
+
+    public String getQuery() {
+        return query;
+    }
+
+    public void setQuery(String query) {
+        this.query = query;
+    }
 
     public Long getEpoch() {
         return epoch;

@@ -26,6 +26,10 @@ public class EpochToDate {
         formatter.setTimeZone(TimeZone.getTimeZone("America/New_York"));
         Date testTwo = formatter.parse(CNBC);
 
+        String testing = "2021-04-15T20:10:32+0000";
+        testing = testing.substring(0, testing.length() - 5);
+        System.out.println(testing);
+
         List<Date> list = new ArrayList<>();
         list.add(testOne);
         list.add(testTwo);
@@ -42,6 +46,7 @@ public class EpochToDate {
         System.out.println(" ");
 
         long difference_In_Time = testOne.getTime() - testTwo.getTime();
+        System.out.println(difference_In_Time);
         long difference_In_Minutes = (difference_In_Time / (1000 * 60)) % 60;
         long difference_In_Hours = (difference_In_Time / (1000 * 60 * 60)) % 24;
         long difference_In_Days = (difference_In_Time / (1000 * 60 * 60 * 24)) % 365;

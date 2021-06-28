@@ -150,22 +150,26 @@ class Sorted_list extends Component {
     }
 
     render() {
-        const STYLE = { height: 1000, overflow: 'scroll' }
+        const STYLE = {height: 1000, overflow: 'scroll'}
         const news = this.state.news
-        const date = new Date();
-        console.log(date);
-        function dateConvert(postedTime) {
-            const difference_In_Time = date.toLocaleTimeString() - postedTime;
-            const difference_In_Minutes = (difference_In_Time / (1000 * 60)) % 60;
-            const difference_In_Hours = (difference_In_Time / (1000 * 60 * 60)) % 24;
-            const difference_In_Days = (difference_In_Time / (1000 * 60 * 60 * 24)) % 365;
 
-            if(difference_In_Days === 0 && difference_In_Hours === 0){
-                return (difference_In_Minutes + "m");
-            } else if(difference_In_Days === 0){
-                return (difference_In_Hours + "h");
+        function dateConvert(postedDate) {
+            let currDate = new Date()
+            let currDateEpoch = Math.round(((new Date(currDate)).getTime()))
+            let postedDateEpoch = ((new Date(postedDate)).getTime())
+
+            let diff = currDateEpoch - postedDateEpoch
+
+            let diffInDays = Math.round((diff / (1000 * 60 * 60 * 24)) % 365)
+            let diffInHours = Math.round((diff / (1000 * 60 * 60)) % 24)
+            let diffInMins = Math.round((diff / (1000 * 60)) % 60)
+
+            if (diffInDays === 0 && diffInHours === 0) {
+                return diffInMins + "m"
+            } else if (diffInDays === 0) {
+                return diffInHours + "h"
             } else {
-                return (difference_In_Days + "d");
+                return diffInDays + "d"
             }
         }
 
@@ -174,13 +178,12 @@ class Sorted_list extends Component {
             <li className="news-list">
                 <a href={article.url}>
                     <div className="sourceContainer">
-                        <i className="fab fa-hacker-news-square"/>
+                        {/*<i className="fab fa-hacker-news-square"/>*/}
                         <div className="source">
                             {article.source}
                         </div>
                         <div className="date">
-                            {article.date}
-                            <p>Testing</p>
+                            {/*{article.date}*/}
                             {dateConvert(article.date)}
                         </div>
                     </div>

@@ -8,12 +8,15 @@
 
 li {
     list-style-type: none;
+    overflow: hidden;
 }
 
 a {
     text-decoration: none;
     color: rgb(48, 54, 58);
 }
+
+
 
 .newsTable-container {
     /*background: yellow;*/
@@ -45,7 +48,7 @@ a {
 .source {
     /*background: brown;*/
     font-weight: 700;
-    font-family: Capsule Sans Text,-apple-system,BlinkMacSystemFont,sans-serif;
+    font-family: Capsule Sans Text, -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 13px;
     padding: 0 0 0 5px;
     margin: 3px 0;
@@ -53,6 +56,8 @@ a {
 
 .date {
     /*background: darkmagenta;*/
+    font-family: Capsule Sans Text, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 13px;
     margin: 3px 0 3px 10px;
 }
 
@@ -65,8 +70,8 @@ a {
 
 .title {
     /*background: darkslategray;*/
-    padding: 2px;
-    margin-left: 10px;
+    padding: 0 5px;
+    margin: 3px 0;
     justify-content: flex-start;
     width: 90%;
     font-size: 15px;
