@@ -1,37 +1,41 @@
 package project.newsfeed.connectors;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-
 @Service("yahoo")
-public class YahooConnector {
-    URL url;
-    HttpURLConnection con;
+public class YahooConnector extends RestConnector {
+
+    private final String apiKey;
+    private final String apiHost;
 
     @Autowired
-    public YahooConnector() throws IOException {
-        this.url = new URL("https://apidojo-yahoo-finance-v1.p.rapidapi.com/news/list");
-        this.con = (HttpURLConnection) url.openConnection();
-        con.setRequestMethod("GET");
-        con.setRequestProperty("x-rapidapi-key", "91faf0d288msh6cfed19c98ec77ap19861fjsn7e995aff6067");
-        con.setRequestProperty("x-rapidapi-host", "apidojo-yahoo-finance-v1.p.rapidapi.com");
-        con.setRequestProperty("accept", "application/json");
+    public YahooConnector(
+            @Value("${feedMe.yahoo.host}") String host,
+            @Value("${feedMe.yahoo.apiKey}") String apiKey
+    ) {
+        super(host);
+        this.apiKey = apiKey;
+        this.apiHost = host;
     }
 
 
+    //    @Cacheable(cacheNames={"yahooResponse"}, cacheManager = "cacheWithTTL")
+    public JsonNode getFullResponse() {
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("x-rapidapi-key", apiKey);
+        headers.add("x-rapidapi-host", apiHost);
 
-//    @Cacheable(cacheNames={"yahooResponse"}, cacheManager = "cacheWithTTL")
-    public JsonNode getFullResponse() throws IOException {
-        InputStream responseStream = con.getInputStream();
-        ObjectMapper mapper = new ObjectMapper();
-        return mapper.readValue(responseStream, JsonNode.class);
+        String TRENDING_ENDPOINT = "/news/list";
+        return rq()
+                .headers(headers)
+                .verb(HttpMethod.GET)
+                .send(String.format(TRENDING_ENDPOINT), JsonNode.class)
+                .getBody();
     }
 
 //    @Cacheable(value = "stockInfoByTicker", key = "#sungmin")
@@ -42,18 +46,18 @@ public class YahooConnector {
 //    }
 
     /** SPRING BOOT IN-MEMORY CACHE
-    yahooResponse = {
+     yahooResponse = {
 
      },
 
-    stockInfoByTicker = {
-        "AAPL" : {
-//            DETAILED INFO ABOUT APPLE
-         },
-        "BMW": {
+     stockInfoByTicker = {
+     "AAPL" : {
+     //            DETAILED INFO ABOUT APPLE
+     },
+     "BMW": {
 
-        }
-    }
+     }
+     }
 
 
      */

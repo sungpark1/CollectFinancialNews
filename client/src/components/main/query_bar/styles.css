@@ -1,0 +1,22 @@
+.searchBar {
+    /*background-color: pink;*/
+    margin: 5px 0;
+    /*padding: 10px 0 10px 0;*/
+
+}
+
+.placeholder-text {
+    background: none;
+    width: 35%;
+    display: block;
+    border: 1px solid #aaa;
+    margin: auto;
+    background: white;
+    font-size: 15px;
+    padding: 10px;
+    border-radius: 20px;
+    outline: none;
+    box-sizing: border-box;
+    /*font-family: inherit;*/
+}
+

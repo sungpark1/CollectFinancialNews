@@ -1,35 +1,38 @@
 package project.newsfeed.connectors;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-
 @Service("cnbc")
-public class CNBCConnector {
+public class CNBCConnector extends RestConnector {
 
-    URL url;
-    HttpURLConnection connection;
+    private final String apiKey;
+    private final String apiHost;
 
     @Autowired
-    public CNBCConnector() throws IOException {
-        this.url = new URL("https://cnbc.p.rapidapi.com/news/list-trending");
-        this.connection = (HttpURLConnection) url.openConnection();
-        connection.setRequestMethod("GET");
-        connection.setRequestProperty("x-rapidapi-key", "91faf0d288msh6cfed19c98ec77ap19861fjsn7e995aff6067");
-        connection.setRequestProperty("x-rapidapi-host", "cnbc.p.rapidapi.com");
-        connection.setRequestProperty("accept", "application/json");
+    public CNBCConnector(
+            @Value("${feedMe.cnbc.host}") String host,
+            @Value("${feedMe.cnbc.apiKey}") String apiKey
+    ) {
+        super(host);
+        this.apiKey = apiKey;
+        this.apiHost = host;
     }
 
-    public JsonNode getFullResponse() throws IOException {
-        InputStream responseStream = connection.getInputStream();
-        ObjectMapper mapper = new ObjectMapper();
+    public JsonNode getFullResponse() {
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("x-rapidapi-key", apiKey);
+        headers.add("x-rapidapi-host", apiHost);
 
-        return mapper.readValue(responseStream, JsonNode.class);
+        String TRENDING_ENDPOINT = "/news/list-trending";
+        return rq()
+                .headers(headers)
+                .verb(HttpMethod.GET)
+                .send(String.format(TRENDING_ENDPOINT), JsonNode.class)
+                .getBody();
     }
 }

@@ -1,9 +1,11 @@
 import React, {Component} from "react";
 import ReactDOM from "react-dom";
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import Nav_Bar from "./components/nav_bar/nav_bar";
-import Sorted_list from "./components/main/news_table/sorted_list";
+import {BrowserRouter as Router} from "react-router-dom";
+import NavBar from "./components/nav_bar/nav_bar";
+import SortedList from "./components/main/news_table/sorted_list";
+
 import "./styles.css";
+import QueryBar from "./components/main/query_bar/query_bar";
 
 //Set everything up here
 class Index extends Component {
@@ -11,8 +13,9 @@ class Index extends Component {
         return (
             <Router>
                 <div className="App">
-                    <Nav_Bar />
-                    <Sorted_list />
+                    <NavBar />
+                    <QueryBar />
+                    <SortedList />
                 </div>
             </Router>
         )

@@ -1,10 +1,7 @@
 package project.newsfeed.connectors;
 
-import org.apache.http.conn.ssl.NoopHostnameVerifier;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
-import org.apache.http.impl.client.HttpClients;
-import org.apache.http.ssl.SSLContextBuilder;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.*;
@@ -48,7 +45,6 @@ public abstract class RestConnector {
         private HttpMethod verb = HttpMethod.GET;
         private Object requestBody = null;
         private HttpHeaders headers = new HttpHeaders();
-
 
         public <T> ResponseEntity<T> send(
                 String endpoint,

@@ -14,15 +14,12 @@ import javax.servlet.http.HttpServletRequest;
 public class YahooSearchConnector extends RestConnector {
 
     private final String apiKey;
-    private final String host;
-    private final String TICKER_ENDPOINT = "/auto-complete?q=%s";
-    private final String basePath;
+    private final String apiHost;
 
     @Autowired
     public YahooSearchConnector(
             @Value("${feedMe.yahooSearch.host}") String host,
-            @Value("${feedMe.yahooSearch.apiKey}") String apiKey,
-            @Value("${feedMe.yahooSearch.basePath") String basePath
+            @Value("${feedMe.yahooSearch.apiKey}") String apiKey
 //        this.url = new URL("https://apidojo-yahoo-finance-v1.p.rapidapi.com/auto-complete?q=");
 //        this.con = (HttpURLConnection) url.openConnection();
 //        con.setRequestMethod("GET");
@@ -32,8 +29,7 @@ public class YahooSearchConnector extends RestConnector {
     ) {
         super(host);
         this.apiKey = apiKey;
-        this.host = host;
-        this.basePath = basePath;
+        this.apiHost = host;
     }
 
     public JsonNode getFullResponse(
@@ -41,12 +37,13 @@ public class YahooSearchConnector extends RestConnector {
     ) {
         HttpHeaders headers = new HttpHeaders();
         headers.add("x-rapidapi-key", apiKey);
-        headers.add("x-rapidapi-host", host);
+        headers.add("x-rapidapi-host", apiHost);
 
+        String TICKER_ENDPOINT = "/auto-complete?q=%s";
         return rq()
                 .headers(headers)
                 .verb(HttpMethod.GET)
-                .send(basePath + String.format(TICKER_ENDPOINT, ticker), JsonNode.class)
+                .send(String.format(TICKER_ENDPOINT, ticker), JsonNode.class)
                 .getBody();
     }
 

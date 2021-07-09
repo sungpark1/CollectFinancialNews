@@ -75,7 +75,7 @@
 import React, {Component} from 'react';
 import './styles.css';
 
-class Sorted_list extends Component {
+class SortedList extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -202,7 +202,6 @@ class Sorted_list extends Component {
 
         return (
             <div className="newsTable-container">
-                <div className="searchBar">Search bar</div>
                 <div ref={this.handleRef} style={STYLE} className="container">
                     {titles}
                 </div>
@@ -214,7 +213,7 @@ class Sorted_list extends Component {
 
 }
 
-export default Sorted_list;
+export default SortedList;
 
 
 // constructor
