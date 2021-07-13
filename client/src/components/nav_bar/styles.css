@@ -134,4 +134,8 @@
     Button {
         display: none;
     }
+
+    .Try {
+        visibility: hidden;
+    }
 }

@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import ReactDOM from "react-dom";
-import {BrowserRouter as Router} from "react-router-dom";
+import {BrowserRouter as Router, Route} from "react-router-dom";
 import NavBar from "./components/nav_bar/nav_bar";
 import SortedList from "./components/main/news_table/sorted_list";
 
@@ -13,9 +13,11 @@ class Index extends Component {
         return (
             <Router>
                 <div className="App">
-                    <NavBar />
-                    <QueryBar />
-                    <SortedList />
+                    <NavBar/>
+                    <Route path="/searched">
+                        <QueryBar/>
+                    </Route>
+                    <SortedList className="Try" />
                 </div>
             </Router>
         )

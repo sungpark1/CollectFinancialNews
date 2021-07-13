@@ -3,11 +3,16 @@ package project.newsfeed.connectors;
 import com.fasterxml.jackson.databind.JsonNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
+
+import static org.apache.commons.lang.time.DateUtils.MILLIS_PER_MINUTE;
 
 
 @Service("yahooSearch")
@@ -32,6 +37,9 @@ public class YahooSearchConnector extends RestConnector {
         this.apiHost = host;
     }
 
+    @Cacheable(value = "searchByTicker", unless = "#result == null")
+    @CacheEvict(allEntries = true, value = {"searchByTicker"})
+    @Scheduled(fixedRate = 30 * MILLIS_PER_MINUTE)
     public JsonNode getFullResponse(
             String ticker
     ) {
