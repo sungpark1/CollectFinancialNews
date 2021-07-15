@@ -38,7 +38,7 @@ To run the server: `mvn clean spring boot run`
 
 - The feed has a **search feature** to filter for specific news topics and articles. 
 
-                               ----------**3 big decisions**---------
+                               ----------**4 big decisions**---------
 
 1. **[Deciding the environment for date conversion](https://github.com/sungpark1/FeedMe/blob/main/client/src/components/main/news_table/defaultNewsFeed.js#L82):** Converted the date formats on the backend from various news platforms to a single uniform format and sorted the news articles by published date. In the front end I determined the display date which was a calculation of current date and time minus the publish date. I chose to do the display date conversion in the front end to eliminate an additional API call to reduce the cost and chance of an API failure.
 
