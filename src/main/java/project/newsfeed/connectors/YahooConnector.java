@@ -23,8 +23,6 @@ public class YahooConnector extends RestConnector {
         this.apiHost = host;
     }
 
-
-    //    @Cacheable(cacheNames={"yahooResponse"}, cacheManager = "cacheWithTTL")
     public JsonNode getFullResponse() {
         HttpHeaders headers = new HttpHeaders();
         headers.add("x-rapidapi-key", apiKey);
@@ -37,29 +35,5 @@ public class YahooConnector extends RestConnector {
                 .send(String.format(TRENDING_ENDPOINT), JsonNode.class)
                 .getBody();
     }
-
-//    @Cacheable(value = "stockInfoByTicker", key = "#sungmin")
-//    public JsonNode getStockInfoByTicker(String sungmin) {
-//
-////        api call
-//        return
-//    }
-
-    /** SPRING BOOT IN-MEMORY CACHE
-     yahooResponse = {
-
-     },
-
-     stockInfoByTicker = {
-     "AAPL" : {
-     //            DETAILED INFO ABOUT APPLE
-     },
-     "BMW": {
-
-     }
-     }
-
-
-     */
 }
 

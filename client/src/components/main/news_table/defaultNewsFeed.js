@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './styles.css';
 
-class SortedList extends Component {
+class DefaultNewsFeed extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -79,10 +79,9 @@ class SortedList extends Component {
         const STYLE = {height: 1000, overflow: 'scroll'}
         const news = this.state.news
 
-        function dateConvert(postedDate) {
-            let currDate = new Date()
-            let currDateEpoch = Math.round(((new Date(currDate)).getTime()))
-            let postedDateEpoch = ((new Date(postedDate)).getTime())
+        function dateConvert(currentTime, postedDate) {
+            let currDateEpoch = (new Date(currentTime)).getTime()
+            let postedDateEpoch = (new Date(postedDate)).getTime()
 
             let diff = currDateEpoch - postedDateEpoch
 
@@ -110,7 +109,7 @@ class SortedList extends Component {
                         </div>
                         <div className="date">
                             {/*{article.date}*/}
-                            {dateConvert(article.date)}
+                            {dateConvert(article.currentTime, article.date)}
                         </div>
                     </div>
                     <div className="titleContainer">
@@ -118,8 +117,6 @@ class SortedList extends Component {
                             {article.title}
                         </div>
                         <div className="picture">
-                            <img src={"https://tinyurl.com/yebvn562"}>
-                            </img>
                         </div>
                     </div>
                 </a>
@@ -139,7 +136,7 @@ class SortedList extends Component {
 
 }
 
-export default SortedList;
+export default DefaultNewsFeed;
 
 
 // constructor

@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Link, Route, Switch} from 'react-router-dom';
-import {withRouter} from "react-router";
 import './styles.css';
+import DefaultNewsFeed from "../news_table/defaultNewsFeed";
 
-class QueryBar extends Component {
+class SearchNewsFeed extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
             news: [],
+            searched: false
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -17,6 +17,7 @@ class QueryBar extends Component {
         event.preventDefault()
         const data = new FormData(event.target);
         const ticker = data.get('ticker');
+        this.state.searched = true;
         fetch('/api/v2/yahooSearch?ticker=' + ticker)
             .then(response => response.json())
             .then(data => this.setState({news: data}))
@@ -24,10 +25,10 @@ class QueryBar extends Component {
 
     render() {
         const news = this.state.news
-        function dateConvert(postedDate) {
-            let currDate = new Date()
-            let currDateEpoch = Math.round(((new Date(currDate)).getTime()))
-            let postedDateEpoch = ((new Date(postedDate)).getTime())
+
+        function dateConvert(currentTime, postedDate) {
+            let currDateEpoch = (new Date(currentTime)).getTime()
+            let postedDateEpoch = (new Date(postedDate)).getTime()
 
             let diff = currDateEpoch - postedDateEpoch
 
@@ -44,29 +45,31 @@ class QueryBar extends Component {
             }
         }
 
-        const titles = news.map(article => (
-            <li className="news-list">
-                <a href={article.url}>
-                    <div className="sourceContainer">
-                        <div className="source">
-                            {article.source}
+        const searchedNews = news.map(article => (
+            <div className="container">
+                <li className="news-list">
+                    <a href={article.url}>
+                        <div className="sourceContainer">
+                            <div className="source">
+                                {article.source}
+                            </div>
+                            <div className="date">
+                                {dateConvert(article.currentTime, article.date)}
+                            </div>
                         </div>
-                        <div className="date">
-                            {dateConvert(article.date)}
+                        <div className="titleContainer">
+                            <div className="title">
+                                {article.title}
+                            </div>
+                            <div className="picture">
+                            </div>
                         </div>
-                    </div>
-                    <div className="titleContainer">
-                        <div className="title">
-                            {article.title}
-                        </div>
-                        <div className="picture">
-                            <img src={"https://tinyurl.com/yebvn562"}>
-                            </img>
-                        </div>
-                    </div>
-                </a>
-            </li>
+                    </a>
+                </li>
+            </div>
         ))
+
+        const topNews = <DefaultNewsFeed />
 
         return (
             <div>
@@ -77,10 +80,8 @@ class QueryBar extends Component {
                             <button className="submitButton">Search</button>
                         </form>
                     </div>
-                    <div className="container">
-                        {/*<Link to={"/searched"}>*/}
-                        {titles}
-                        {/*</Link>*/}
+                    <div>
+                        {this.state.searched === true ? searchedNews : topNews}
                     </div>
                 </div>
             </div>
@@ -89,4 +90,4 @@ class QueryBar extends Component {
     }
 }
 
-export default QueryBar;
+export default SearchNewsFeed;

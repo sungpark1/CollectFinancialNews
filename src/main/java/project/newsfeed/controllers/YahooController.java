@@ -31,11 +31,6 @@ public class YahooController {
         return yahooConnector.getFullResponse();
     }
 
-//    @GetMapping("/yahooSearched")
-//    public JsonNode getSearchFullResponse() throws IOException {
-//        return yahooSearchConnector.getFullResponse();
-//    }
-
     @GetMapping("/yahooSearch")
     public List<News> getSearchedNews(
             @RequestParam String ticker

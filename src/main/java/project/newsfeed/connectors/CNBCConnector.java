@@ -28,7 +28,7 @@ public class CNBCConnector extends RestConnector {
         headers.add("x-rapidapi-key", apiKey);
         headers.add("x-rapidapi-host", apiHost);
 
-        String TRENDING_ENDPOINT = "/news/list-trending";
+        String TRENDING_ENDPOINT = "/news/v2/list-trending?tag=Articles&count=30";
         return rq()
                 .headers(headers)
                 .verb(HttpMethod.GET)

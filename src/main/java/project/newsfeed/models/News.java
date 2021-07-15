@@ -16,6 +16,15 @@ public class News {
     Long epoch;
     String date;
     String query;
+    String CurrentTime;
+
+    public String getCurrentTime() {
+        return CurrentTime;
+    }
+
+    public void setCurrentTime(String currentTime) {
+        CurrentTime = currentTime;
+    }
 
     public String getQuery() {
         return query;

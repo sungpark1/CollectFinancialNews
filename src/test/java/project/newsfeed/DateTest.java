@@ -18,7 +18,8 @@ public class DateTest {
         System.out.println(test);
         LocalDateTime localDate = LocalDateTime.parse(test);
         long timeInSeconds = localDate.toEpochSecond(ZoneOffset.UTC);
-
+        long currEpoch = new Date().getTime();
+        System.out.println(currEpoch / 1000 + " eeee");
         System.out.println(timeInSeconds);
         //1618519091
 

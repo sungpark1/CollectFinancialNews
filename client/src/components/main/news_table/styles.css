@@ -9,7 +9,6 @@ a {
 }
 
 
-
 .newsTable-container {
     /*background: yellow;*/
 }
@@ -26,6 +25,7 @@ a {
     padding: 5px;
     cursor: pointer;
     border-bottom: 2px solid #f2f2f2;
+    height: 135px
 }
 
 .news-list:hover {

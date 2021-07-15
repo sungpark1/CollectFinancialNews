@@ -8,7 +8,6 @@ import project.newsfeed.services.NewsFeedService;
 import project.newsfeed.utils.JsonConverter;
 
 import java.io.IOException;
-import java.text.ParseException;
 
 @RestController
 public class CombinedNewsController {
