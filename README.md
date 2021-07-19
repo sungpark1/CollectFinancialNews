@@ -2,9 +2,9 @@
 
 Single-page news website to output real-time news and it has search feature to find related news content.
 
-![](https://media.giphy.com/media/Rb2irgUZXdnqFnHJRl/giphy.gif)
+![](https://media.giphy.com/media/VeKlIDghRaeCPLWt1f/giphy.gif)
 
-![](https://media.giphy.com/media/8rA50DUp86gucV01vN/giphy.gif)
+![](https://media.giphy.com/media/V9QD7S4VaVDsw6ctFB/giphy.gif)
 
 ## Backend
 - Spring Boot v.2.4.4 https://mvnrepository.com/
