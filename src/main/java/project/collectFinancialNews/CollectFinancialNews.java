@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
-public class NewsfeedApplication {
+public class CollectFinancialNews {
 
     @Bean
     public RestTemplate getRestTemplate(){
@@ -14,7 +14,7 @@ public class NewsfeedApplication {
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(NewsfeedApplication.class, args);
+        SpringApplication.run(CollectFinancialNews.class, args);
     }
 
 }
