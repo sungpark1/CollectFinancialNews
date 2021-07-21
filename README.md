@@ -4,7 +4,7 @@ Single-page news website to output real-time news and it has search feature to f
 
 ![](https://media.giphy.com/media/SGeeUuFFkTEtuvzwHR/giphy.gif)
 
-![](https://media.giphy.com/media/zc79TAgKRFJwg8o5Ya/giphy.gif)
+![](https://media.giphy.com/media/D02riIbNu7yYwcAxbo/giphy.gif)
 
 ## Backend
 - Spring Boot v.2.4.4 https://mvnrepository.com/
