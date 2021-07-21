@@ -59,6 +59,12 @@ a {
     color: rgb(48, 54, 58);
 }
 
+h2 {
+    color: #6668f4;
+    margin-left: 70px;
+
+}
+
 .container {
     margin: auto;
     width: 43%;
