@@ -2,6 +2,8 @@
 
 Single-page news website to output real-time news and it has search feature to find related news content.
 
+
+## Demo GIFs
 ![](https://media.giphy.com/media/SGeeUuFFkTEtuvzwHR/giphy.gif)
 
 ![](https://media.giphy.com/media/D02riIbNu7yYwcAxbo/giphy.gif)
