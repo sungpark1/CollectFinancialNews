@@ -1,6 +1,4 @@
-package project.newsfeed;
-
-import org.springframework.beans.factory.annotation.Value;
+package project.collectFinancialNews;
 
 public class UrlTest {
 

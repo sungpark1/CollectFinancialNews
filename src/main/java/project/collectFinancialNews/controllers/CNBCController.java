@@ -1,12 +1,12 @@
-package project.newsfeed.controllers;
+package project.collectFinancialNews.controllers;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import project.newsfeed.connectors.CNBCConnector;
-import project.newsfeed.services.NewsFeedService;
+import project.collectFinancialNews.connectors.CNBCConnector;
+import project.collectFinancialNews.services.NewsFeedService;
 
 import java.io.IOException;
 

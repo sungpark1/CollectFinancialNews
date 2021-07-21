@@ -1,4 +1,4 @@
-package project.newsfeed.utils;
+package project.collectFinancialNews.utils;
 
 import com.fasterxml.jackson.databind.*;
 

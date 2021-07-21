@@ -100,7 +100,7 @@ class DefaultNewsFeed extends Component {
 
         const titles = news.map(article => (
 
-            <li className="news-list">
+            <li className="news-list" >
                 <a href={article.url}>
                     <div className="sourceContainer">
                         {/*<i className="fab fa-hacker-news-square"/>*/}

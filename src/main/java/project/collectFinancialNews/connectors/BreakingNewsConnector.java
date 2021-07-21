@@ -1,4 +1,4 @@
-package project.newsfeed.connectors;
+package project.collectFinancialNews.connectors;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;

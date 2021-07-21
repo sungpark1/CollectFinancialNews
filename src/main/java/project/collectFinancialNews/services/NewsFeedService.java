@@ -1,13 +1,13 @@
-package project.newsfeed.services;
+package project.collectFinancialNews.services;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import project.newsfeed.connectors.CNBCConnector;
-import project.newsfeed.connectors.YahooConnector;
-import project.newsfeed.connectors.YahooSearchConnector;
-import project.newsfeed.models.News;
-import project.newsfeed.utils.JsonConverter;
+import project.collectFinancialNews.connectors.CNBCConnector;
+import project.collectFinancialNews.connectors.YahooConnector;
+import project.collectFinancialNews.connectors.YahooSearchConnector;
+import project.collectFinancialNews.models.News;
+import project.collectFinancialNews.utils.JsonConverter;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

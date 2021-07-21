@@ -1,6 +1,4 @@
-package project.newsfeed.utils;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
+package project.collectFinancialNews.utils;
 
 
 public final class JsonConverter extends JsonUtility {

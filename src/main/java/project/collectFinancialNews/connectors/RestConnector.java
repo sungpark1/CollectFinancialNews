@@ -1,4 +1,4 @@
-package project.newsfeed.connectors;
+package project.collectFinancialNews.connectors;
 
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;

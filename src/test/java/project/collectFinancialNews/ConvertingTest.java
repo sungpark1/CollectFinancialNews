@@ -1,20 +1,12 @@
-package project.newsfeed;
+package project.collectFinancialNews;
 
-import com.fasterxml.jackson.core.JsonFactory;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
-import project.newsfeed.models.News;
-import project.newsfeed.utils.JsonConverter;
+import project.collectFinancialNews.models.News;
+import project.collectFinancialNews.utils.JsonConverter;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 public class ConvertingTest {
 

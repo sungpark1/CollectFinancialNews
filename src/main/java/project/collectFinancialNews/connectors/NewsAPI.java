@@ -1,4 +1,4 @@
-package project.newsfeed.connectors;
+package project.collectFinancialNews.connectors;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

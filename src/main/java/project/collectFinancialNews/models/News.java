@@ -1,8 +1,6 @@
-package project.newsfeed.models;
+package project.collectFinancialNews.models;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-
-import java.util.*;
 
 import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
 

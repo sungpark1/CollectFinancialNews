@@ -1,4 +1,4 @@
-# News Project
+# Real-time Financial News Project
 
 Single-page news website to output real-time news and it has search feature to find related news content.
 

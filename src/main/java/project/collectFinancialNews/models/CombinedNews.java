@@ -1,4 +1,4 @@
-package project.newsfeed.models;
+package project.collectFinancialNews.models;
 
 import java.util.*;
 
