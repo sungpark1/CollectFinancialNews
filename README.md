@@ -2,9 +2,9 @@
 
 Single-page news website to output real-time news and it has search feature to find related news content.
 
-![Sungmin Project Layout.pdf](https://github.com/sungpark1/CollectFinancialNews/files/6873349/Sungmin.Project.Layout.pdf)
+![Sungmin Project Layout-1](https://user-images.githubusercontent.com/72265464/126887286-b1c004cc-f665-42ab-8efa-aab255090a1a.png)
 
-![Collect New Project Pattern.pdf](https://github.com/sungpark1/CollectFinancialNews/files/6873350/Collect.New.Project.Pattern.pdf)
+![Collect New Project Pattern-1](https://user-images.githubusercontent.com/72265464/126887291-eb350cf3-3e3a-4eac-99c8-07bfc814af1b.png)
 
 ## Demo GIFs
 ![](https://media.giphy.com/media/SGeeUuFFkTEtuvzwHR/giphy.gif)
