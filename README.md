@@ -2,7 +2,7 @@
 
 Single-page news website to output real-time news and it has search feature to find related news content.
 
-![Sungmin Project Layout-1](https://user-images.githubusercontent.com/72265464/126887286-b1c004cc-f665-42ab-8efa-aab255090a1a.png)
+![Sungmin Project Layout](https://user-images.githubusercontent.com/72265464/126888038-de0b7d98-4bc8-455e-9ba6-b0be67e86115.png)
 
 ![Collect New Project Pattern-1](https://user-images.githubusercontent.com/72265464/126887291-eb350cf3-3e3a-4eac-99c8-07bfc814af1b.png)
 
