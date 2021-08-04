@@ -31,10 +31,10 @@ public class YahooController {
         return yahooConnector.getFullResponse();
     }
 
-    @GetMapping("/yahooSearch")
+    @GetMapping("/tickers")
     public List<News> getSearchedNews(
-            @RequestParam String ticker
+            @RequestParam String tickerSymbol
     ) throws IOException {
-        return newsFeedService.filterSearchedYahooNews(ticker);
+        return newsFeedService.filterSearchedYahooNews(tickerSymbol);
     }
 }

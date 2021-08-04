@@ -18,7 +18,7 @@ class SearchNewsFeed extends Component {
         const data = new FormData(event.target);
         const ticker = data.get('ticker');
         this.state.searched = true;
-        fetch('/api/v2/yahooSearch?ticker=' + ticker)
+        fetch('/api/v2/tickers?tickerSymbol=' + ticker)
             .then(response => response.json())
             .then(data => this.setState({news: data}))
     }
